@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/working"
+    android:orientation="vertical">
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:id="@+id/TextViewAcercaDe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spain Cosplay"
+        android:layout_marginLeft="140dp"
+        android:textColor="@android:color/background_dark">
+    </TextView>
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:id="@+id/TextViewAcercaDe2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="80dp"
+        android:text="Estamos en desarrollo Ops! ≧ω≦ "
+        android:textColor="@android:color/background_dark">
+    </TextView>
+</LinearLayout>
+
+
+
