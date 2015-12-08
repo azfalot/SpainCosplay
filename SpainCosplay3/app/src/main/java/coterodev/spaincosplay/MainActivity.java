@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_eventos) {
             Intent i = new Intent(this, Eventos.class);
             startActivity(i);
-
         } else if (id == R.id.nav_galeria) {
 
         } else if (id == R.id.nav_noticias) {

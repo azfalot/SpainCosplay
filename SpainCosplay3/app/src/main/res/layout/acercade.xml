@@ -12,8 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Spain Cosplay"
-        android:layout_marginLeft="140dp"
-        android:textColor="@android:color/background_dark">
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="450dp">
     </TextView>
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,10 +22,8 @@
         android:id="@+id/TextViewAcercaDe2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="80dp"
-        android:text="Estamos en desarrollo Ops! ≧ω≦ "
-        android:textColor="@android:color/background_dark">
+        android:text="cotero91@hotmail.es "
+        android:textColor="@android:color/white">
     </TextView>
 </LinearLayout>
 

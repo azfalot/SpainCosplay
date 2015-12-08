@@ -34,7 +34,7 @@ public class SplashScreenActivity extends Activity {
 
                 // Start the next activity
                 Intent mainIntent = new Intent().setClass(
-                        SplashScreenActivity.this, MainActivity.class);
+                        SplashScreenActivity.this, InscripcionActivity.class);
                 startActivity(mainIntent);
 
                 // Close the activity so the user won't able to go back this
