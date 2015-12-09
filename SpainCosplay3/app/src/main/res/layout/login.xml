@@ -14,37 +14,36 @@
         android:padding="30dp"
         android:layout_marginTop="159dp">
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="35dp"
             android:inputType="text"
             android:id="@+id/user"
-            android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:background="@drawable/usuario"/>
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="35dp"
             android:id="@+id/email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorPrimary"
-
             android:gravity="center"
             android:layout_marginTop="9dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:background="@drawable/correo"/>
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="35dp"
             android:id="@+id/pass"
-            android:textColor="@color/colorPrimary"
             android:inputType="textPassword"
             android:ems="10"
             android:gravity="center"
             android:layout_marginTop="9dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:background="@drawable/password"/>
 
     </LinearLayout>
 
@@ -53,7 +52,8 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:id="@+id/iniciarSesion"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="autenticar" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
         android:textColor="@android:color/white"
         android:id="@+id/registrar"
         android:layout_gravity="end"
-        android:onClick="onClick"
+        android:onClick="lanzarRegistro"
         android:clickable="true"
         />
 </LinearLayout>

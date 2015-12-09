@@ -11,4 +11,8 @@ public class RegistrarActivity extends Activity {
         super.onCreate(bundle);
         setContentView(R.layout.registro);
     }
+    //Abrir conexion, hacer un insert, con los datos recogidos
+    public void onRegNuevoUserClick(){
+
+    }
 }
