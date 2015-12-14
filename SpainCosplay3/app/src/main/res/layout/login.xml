@@ -51,8 +51,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
+        android:textColor="@android:color/white"
         android:id="@+id/iniciarSesion"
         android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
         android:onClick="autenticar" />
 
     <TextView

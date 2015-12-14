@@ -19,6 +19,8 @@ import java.sql.SQLException;
  */
 public class InscripcionActivity extends AppCompatActivity {
     Connection conexionMySQL;
+    Conexion datosDB;
+
 
     @Override protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -44,17 +46,23 @@ public class InscripcionActivity extends AppCompatActivity {
         Intent i = new Intent(InscripcionActivity.this,RegistrarActivity.class);
         startActivity(i);
     }
+
     // Consulta de base de datos
+    /*
+    *   Preguntamos por el usuario el email y la contraseña
+    *   si coincide con lo que ha escrito va dentro de la aplicacion
+    *   si no coincide se le avisa.
+    *
+    */
     public void autenticar(){
-        conectarBDMySQL("u412761491_cospa","ca123asd","mysql.hostinger.es","3306","Usuarios");
+        EditText inUsuario  = (EditText)findViewById(R.id.user);
+        conectarBDMySQL(datosDB.getUsuario(),datosDB.getContrasena(),datosDB.getIp(),datosDB.getPuerto(),"Usuarios");
          //  = (EditText)findViewById(R.id.user)
 
-       String consulta = "Select * from Usuarios Where nombre="+nombre;
+       String consulta = "Select * from Usuarios Where nombre="+inUsuario.getText().toString();
     }
 
-    public void conectarBDMySQL (String usuario, String contrasena,
-                                 String ip, String puerto, String catalogo)
-    {
+    public void conectarBDMySQL (String usuario, String contrasena, String ip, String puerto, String catalogo){
         /*
         usuario = "u412761491_cospa";
         contrasena = "ca123asd";
@@ -92,6 +100,5 @@ public class InscripcionActivity extends AppCompatActivity {
             }
         }
     }
-
 
 }

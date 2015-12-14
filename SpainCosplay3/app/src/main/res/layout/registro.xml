@@ -2,16 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/register">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/registroN"
-        android:textColor="@android:color/white"
-        android:textSize="19sp"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"/>
@@ -21,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="@color/colorPrimary"
+
         android:layout_marginBottom="150dp"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="10dp"
@@ -119,6 +116,8 @@
             android:id="@+id/BtnRegistrar"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/white"
             android:onClick="onRegNuevoUserClick" />
     </LinearLayout>
 
