@@ -24,21 +24,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        SQLDatabase EventosDB = new SQLDatabase(this);
-
-        SQLiteDatabase db = EventosDB.getWritableDatabase();
-        if (db != null){
-            //Codigo aqui
-
-            db.execSQL("INSERT INTO eventos (nombre,lugar,fecha)"+
-                    "VALUES ('Japan WeekEnd Madrid', 'IFEMA', 'datetime()')");
-            db.execSQL("INSERT INTO eventos (nombre,lugar,fecha)"+
-                    "VALUES ('Salon del Manga de Barcelona', 'Montjuic', 'datetime()')");
-            db.execSQL("INSERT INTO eventos (nombre,lugar,fecha)"+
-                    "VALUES ('Festival de Manga de Getxo', 'Getxo', 'datetime()')");
-
-            db.close();
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

@@ -55,7 +55,7 @@
         android:id="@+id/iniciarSesion"
         android:layout_gravity="center_horizontal"
         android:background="@android:color/transparent"
-        android:onClick="autenticar" />
+        android:onClick="" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         android:textSize="18sp"
         android:textColor="@android:color/white"
         android:id="@+id/registrar"
-        android:layout_gravity="end"
+        android:layout_gravity="center"
         android:onClick="lanzarRegistro"
         android:clickable="true"
         />

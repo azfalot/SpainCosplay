@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/register">
 
@@ -10,8 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"/>
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -45,7 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:id="@+id/nameR"/>
+                android:id="@+id/nameR"
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -64,7 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:id="@+id/emailR"/>
+                android:id="@+id/emailR"
+                android:text=""/>
 
         </LinearLayout>
         <LinearLayout
@@ -87,7 +89,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:id="@+id/userR"/>
+                android:id="@+id/userR"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="93dp"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Contraseña:"
+                android:textColor="@android:color/white"
+                android:textSize="17dp" />
+
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/passR"
+            android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -106,19 +129,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:id="@+id/passR"/>
-
+                android:id="@+id/passR2"
+                android:text=""/>
         </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aceptar"
-            android:id="@+id/BtnRegistrar"
+            android:id="@+id/registarUsuarioBtn"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
-            android:textColor="@android:color/white"
-            android:onClick="onRegNuevoUserClick" />
+            android:textColor="@android:color/white"/>
     </LinearLayout>
-
 </LinearLayout>
