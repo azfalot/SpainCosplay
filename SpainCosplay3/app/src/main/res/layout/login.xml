@@ -21,7 +21,8 @@
             android:gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/usuario"/>
+            android:background="@drawable/usuario"
+            android:text="pol"/>
         <EditText
             android:layout_width="280dp"
             android:layout_height="35dp"
@@ -31,7 +32,8 @@
             android:layout_marginTop="9dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/correo"/>
+            android:background="@drawable/correo"
+            android:text="pol"/>
 
         <EditText
             android:layout_width="280dp"
@@ -43,7 +45,8 @@
             android:layout_marginTop="9dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/password"/>
+            android:background="@drawable/password"
+            android:text="polseña"/>
 
     </LinearLayout>
 
@@ -54,8 +57,7 @@
         android:textColor="@android:color/white"
         android:id="@+id/iniciarSesion"
         android:layout_gravity="center_horizontal"
-        android:background="@android:color/transparent"
-        android:onClick="" />
+        android:background="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"
