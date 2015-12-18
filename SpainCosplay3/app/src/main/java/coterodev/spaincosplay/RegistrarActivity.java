@@ -47,48 +47,55 @@ public class RegistrarActivity extends Activity {
         String passB = contrasena2.getText().toString();
 
         if ( !Snombre.equals("") && !Semail.equals("") && !Susuario.equals("") && !passA.equals("") && !passB.equals("")) {
-            if (passA.equals(passB)) {
-                try {
-                    URL url = new URL("http://coterodev.esy.es/usuarios/registro.php?nombre=" + nombre.getText().toString()
-                            + "&email=" + email.getText().toString()
-                            + "&usuario=" + usuario.getText().toString() +
-                            "&contrasena=" + contrasena1.getText().toString());
+            if (passA.length() >= 6 && Semail.length() >= 8 && Semail.contains("@") == true ) {
+                if (passA.equals(passB)) {
+                    try {
+                        URL url = new URL("http://coterodev.esy.es/usuarios/registro.php?nombre=" + nombre.getText().toString()
+                                + "&email=" + email.getText().toString()
+                                + "&usuario=" + usuario.getText().toString() +
+                                "&contrasena=" + contrasena1.getText().toString());
 
-                    HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-                    if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
-                        String linea = reader.readLine();
-                        if (linea == null){linea="navidad";}
-                        if (linea.equals("navidad")){
-                            toast = Toast.makeText(getApplicationContext(), "Registro completado", Toast.LENGTH_SHORT);
-                            toast.show();
-                            reader.close();
-                            super.onBackPressed();
-                        }
-                        if (!linea.equals("")) {
-                            if (linea.contains(" key 'PRIMARY'")) {
-                                toast = Toast.makeText(getApplicationContext(), "Ya existe una cuenta vinculada con este e-mail.", Toast.LENGTH_LONG);
-                                toast.show();
+                        HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+                        if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+                            String linea = reader.readLine();
+                            if (linea == null) {
+                                linea = "navidad";
                             }
-                            if (linea.contains("key 'Usuario_")) {
-                                toast = Toast.makeText(getApplicationContext(), "Ya existe una cuenta con ese usuario.", Toast.LENGTH_LONG);
+                            if (linea.equals("navidad")) {
+                                toast = Toast.makeText(getApplicationContext(), "Registro completado", Toast.LENGTH_SHORT);
                                 toast.show();
+                                reader.close();
+                                super.onBackPressed();
                             }
+                            if (!linea.equals("")) {
+                                if (linea.contains(" key 'PRIMARY'")) {
+                                    toast = Toast.makeText(getApplicationContext(), "Ya existe una cuenta vinculada con este e-mail.", Toast.LENGTH_LONG);
+                                    toast.show();
+                                }
+                                if (linea.contains("key 'Usuario_")) {
+                                    toast = Toast.makeText(getApplicationContext(), "Ya existe una cuenta con ese usuario.", Toast.LENGTH_LONG);
+                                    toast.show();
+                                }
+                            }
+
+
                         }
-
-
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } else {
+                    toast = Toast.makeText(getApplicationContext(), "No coinciden las contraseñas/No aporto un email", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-            } else {
-
-                toast = Toast.makeText(getApplicationContext(), "No coinciden las contraseñas/No aporto un email", Toast.LENGTH_SHORT);
-                toast.show();
-
+            }else {
+                if (passA.length() < 6){toast = Toast.makeText(getApplicationContext(), "la contraseña debe tener un minimo de 6 caracteres", Toast.LENGTH_SHORT); toast.show();}
+                if (Semail.contains("@") == false){toast = Toast.makeText(getApplicationContext(), "Correo no valido", Toast.LENGTH_SHORT); toast.show();}
             }
-        }else {toast = Toast.makeText(getApplicationContext(), "Uno o Varios campos vacios", Toast.LENGTH_SHORT);toast.show();}
+        }else {
+            toast = Toast.makeText(getApplicationContext(), "Uno o Varios campos vacios", Toast.LENGTH_SHORT);toast.show();
+        }
     }
 }
