@@ -2,8 +2,8 @@ package coterodev.spaincosplay;
 
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +13,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import java.util.ArrayList;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    InputStream is = null;
+    String urlEventos = "http://coterodev.esy.es/eventos/eventos.php";
+    String line = null;
+    String resultado = null;
+
+    public String[] nombres, lugares, fecha ,fechab ,cartel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        //drawer_layout -> activity_main
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -33,6 +53,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Una vez Cargada la informacion
+        //Hacer peticion de datos al Servidor
+        //Obtener datos en un Array o un JsonObject
+        //Establecer un adaptador
+        //pasar ese adaptador al listview-> de content_main que contiene un listview con id=list
+        cargarEvemtos();
+
+        //Listview lv =(ListView) findViewById(R.id.)
+
 
     }
 
@@ -53,6 +83,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    //Menu acercade
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -68,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    //Opciones de menu desplegable
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -93,12 +125,56 @@ public class MainActivity extends AppCompatActivity
         startActivity(i);
     }
 
-    public static ArrayList<String> retornarArray(){
-        ArrayList<String> miArray = new ArrayList<String>();
-
-        miArray.add("Getxo");
-        miArray.add("Barcelona");
-        miArray.add("Madrid");
-        return  miArray;
+    public void cargarEvemtos(){
+        llamarServicioWeb();
     }
+
+    public void llamarServicioWeb() {
+        try {
+            URL url = new URL(urlEventos);
+            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+            if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                while ((line = br.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                br.close();
+                resultado = sb.toString();
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //Parsear texto a JSON
+        try {
+
+            JSONArray jArray = new JSONArray(resultado);
+            JSONObject jObjeto = null;
+
+            //nombres, lugares, fecha ,fechab ,cartel;
+
+            nombres = new String[jArray.length()];
+            lugares = new String[jArray.length()];
+            fecha = new String[jArray.length()];
+            fechab = new String[jArray.length()];
+            cartel = new String[jArray.length()];
+
+            for (int i = 0; i < jArray.length(); i++) {
+
+                jObjeto = jArray.getJSONObject(i);
+                nombres[i] = jObjeto.getString("nombre");
+                lugares[i] = jObjeto.getString("lugar");
+                fecha[i] = jObjeto.getString("fecha");
+                fechab[i] = jObjeto.getString("fecha_fin");
+                cartel[i] = jObjeto.getString("cartel");
+
+            }
+        } catch (Exception e) {
+            Log.e("A JSON", e.toString());
+        }
+    }
+
 }

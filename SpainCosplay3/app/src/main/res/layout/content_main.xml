@@ -15,31 +15,58 @@
     tools:context="coterodev.spaincosplay.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Eventos"
-        android:gravity="center"
-        android:textSize="10pt"
-        android:layout_margin="10px" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1">
-
         <ListView
-            android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:drawSelectorOnTop="false"/>
+            android:id="@+id/listaeventos">
 
-        <TextView
-            android:id="@android:id/empty"
+
+        </ListView>
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No hay Eventos"
-            />
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="109dp"
+                android:layout_height="110dp"
+                android:id="@+id/cartel"
+                android:background="#A8B5C3" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="#89A7C7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Nombre Evento"
+                    android:id="@+id/nombreEvento" />
+
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Fechas Evento"
+                android:id="@+id/fechaEvento" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Lugar"
+                    android:id="@+id/lugarEvento" />
+            </LinearLayout>
+
+        </LinearLayout>
     </FrameLayout>
 
 </LinearLayout>
