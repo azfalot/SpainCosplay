@@ -1,6 +1,5 @@
 package coterodev.spaincosplay;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,20 +11,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
 
 /**
  * Created by carlos on 08/12/2015.
  */
-public class Eventos extends ListActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class PruebaNavegadorEventos extends ListActivity implements NavigationView.OnNavigationItemSelectedListener {
     @Override public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, MainActivity.retornarArray()));
+        //setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, MainActivity.retornarArray()));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,7 +72,7 @@ public class Eventos extends ListActivity implements NavigationView.OnNavigation
         int id = item.getItemId();
 
         if (id == R.id.nav_eventos) {
-            Intent i = new Intent(this, Eventos.class);
+            Intent i = new Intent(this, PruebaNavegadorEventos.class);
             startActivity(i);
         } else if (id == R.id.nav_galeria) {
 

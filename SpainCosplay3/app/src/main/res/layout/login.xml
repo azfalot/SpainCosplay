@@ -26,14 +26,14 @@
         <EditText
             android:layout_width="280dp"
             android:layout_height="35dp"
+            android:inputType="text"
             android:id="@+id/email"
             android:gravity="center"
             android:layout_marginTop="9dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/correo"
-            android:text="" />
-
+            android:text=""/>
         <EditText
             android:layout_width="280dp"
             android:layout_height="35dp"

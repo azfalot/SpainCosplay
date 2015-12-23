@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="?android:attr/listPreferredItemHeight"
+        android:layout_height="match_parent"
+        android:id="@+id/cartel"
+        android:background="#A8B5C3"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/cartel"
+        android:text="Nombre Evento"
+        android:id="@+id/nombreEvento" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/cartel"
+        android:text="Fechas Evento"
+        android:id="@+id/fechaEvento"
+        android:layout_below="@id/nombreEvento"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/cartel"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Lugar"
+        android:id="@+id/lugarEvento"
+        android:layout_below="@id/fechaEvento"/>
+</RelativeLayout>

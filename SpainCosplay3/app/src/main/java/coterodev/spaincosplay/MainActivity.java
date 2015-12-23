@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         //Obtener datos en un Array o un JsonObject
         //Establecer un adaptador
         //pasar ese adaptador al listview-> de content_main que contiene un listview con id=list
-        cargarEvemtos();
+        cargarEventos();
 
         //Listview lv =(ListView) findViewById(R.id.)
 
@@ -107,8 +107,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_eventos) {
-            /*Intent i = new Intent(this, Eventos.class);
-            startActivity(i);*/
+
         } else if (id == R.id.nav_galeria) {
 
         } else if (id == R.id.nav_noticias) {
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity
         startActivity(i);
     }
 
-    public void cargarEvemtos(){
+    public void cargarEventos(){
         llamarServicioWeb();
     }
 

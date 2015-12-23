@@ -16,7 +16,6 @@ public class SplashScreenActivity extends Activity {
 
     // Set the duration of the splash screen
     private static final long SPLASH_SCREEN_DELAY = 3000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +26,13 @@ public class SplashScreenActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.splash);
-
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
 
                 // Start the next activity
                 Intent mainIntent = new Intent().setClass(
-                        SplashScreenActivity.this, LoginActivity.class);
+                        SplashScreenActivity.this, EventosActivity.class);
                 startActivity(mainIntent);
 
                 // Close the activity so the user won't able to go back this
