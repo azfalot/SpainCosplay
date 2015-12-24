@@ -7,4 +7,7 @@
     <string name="login">Iniciar sesión</string>
     <string name="register">Registrar</string>
     <string name="registroN">Nuevo Usuario</string>
+    <string name="eventosBtn">Informacion Eventos</string>
+    <string name="ajustesBtn">Ajustes</string>
+    <string name="salirBtn">Salir</string>
 </resources>

@@ -5,41 +5,42 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="?android:attr/listPreferredItemHeight"
-        android:layout_height="match_parent"
+        android:layout_width="109dp"
+        android:layout_height="110dp"
         android:id="@+id/cartel"
         android:background="#A8B5C3"
         android:layout_alignParentLeft="true"/>
-
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/cartel"
-        android:text="Nombre Evento"
-        android:id="@+id/nombreEvento"
-        android:background="#89A7C7"/>
+        android:layout_height="110dp"
+        android:layout_toRightOf="@+id/cartel"
+        android:background="#89A7C7">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@id/cartel"
-        android:text="Fechas Evento"
-        android:id="@+id/fechaEvento"
-        android:background="#89A7C7"
-        android:layout_below="@id/nombreEvento"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:text="Nombre Evento"
+            android:id="@+id/nombreEvento"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/cartel"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Lugar"
-        android:background="#89A7C7"
-        android:id="@+id/lugarEvento"
-        android:layout_below="@id/fechaEvento"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_centerInParent="true"
+            android:text="Fechas Evento"
+            android:id="@+id/fechaEvento"
+            android:layout_below="@id/nombreEvento"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Lugar"
+            android:id="@+id/lugarEvento"
+            android:layout_below="@id/fechaEvento"/>
+    </LinearLayout>
 </RelativeLayout>

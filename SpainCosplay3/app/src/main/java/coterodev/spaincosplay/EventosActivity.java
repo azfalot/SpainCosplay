@@ -14,9 +14,6 @@ import java.util.concurrent.ExecutionException;
 public class EventosActivity extends ListActivity{
 
     EventosNegocio eventosNegocio = new EventosNegocio();
-
-    //String listado[] = {"Barcelona", "Bilbao", "Madrid", "Sevilla", "Valencia"};
-    //String url = "http://coterodev.esy.es/eventos/eventos.php";
     @Override public void onCreate(Bundle savedInstanceState){
         eventosNegocio.execute("http://coterodev.esy.es/eventos/eventos.php");
         try {

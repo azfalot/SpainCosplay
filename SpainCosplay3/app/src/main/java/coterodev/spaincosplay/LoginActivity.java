@@ -26,8 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.login);
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
-        Button button = (Button)findViewById(R.id.iniciarSesion);
 
+        Button button = (Button)findViewById(R.id.iniciarSesion);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                                 _usuario.setContraseña(Scontrasena);
                                  */
                                     //Lanzamos MainActivity
-                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                    Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
                                     startActivity(i);
                                 } else {
                                     if (!Semail.equalsIgnoreCase(correo)) {
