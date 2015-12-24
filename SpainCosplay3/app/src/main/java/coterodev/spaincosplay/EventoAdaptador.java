@@ -27,7 +27,7 @@ public class EventoAdaptador extends BaseAdapter {
 
     private final Activity actividad;
     private ArrayList<Evento> listaEventos;
-    ObtenerImagenEvento obtenerImagenEvento = new ObtenerImagenEvento();
+    ObtenerImagenEvento obtenerImagenEvento;
 
     public EventoAdaptador(Activity actividad, ArrayList<Evento> lista) {
         super();
@@ -52,6 +52,7 @@ public class EventoAdaptador extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        obtenerImagenEvento = new ObtenerImagenEvento();
         LayoutInflater inflater = actividad.getLayoutInflater();
         View view = inflater.inflate(R.layout.elemento_lista, null, true);
         TextView textoNombre = (TextView) view.findViewById(R.id.nombreEvento);

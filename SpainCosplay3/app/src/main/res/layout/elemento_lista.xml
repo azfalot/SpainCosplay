@@ -18,7 +18,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/cartel"
         android:text="Nombre Evento"
-        android:id="@+id/nombreEvento" />
+        android:id="@+id/nombreEvento"
+        android:background="#89A7C7"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -28,6 +29,7 @@
         android:layout_toRightOf="@id/cartel"
         android:text="Fechas Evento"
         android:id="@+id/fechaEvento"
+        android:background="#89A7C7"
         android:layout_below="@id/nombreEvento"/>
 
     <TextView
@@ -37,6 +39,7 @@
         android:layout_toRightOf="@id/cartel"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Lugar"
+        android:background="#89A7C7"
         android:id="@+id/lugarEvento"
         android:layout_below="@id/fechaEvento"/>
 </RelativeLayout>
