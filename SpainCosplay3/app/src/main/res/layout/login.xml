@@ -47,6 +47,14 @@
             android:background="@drawable/password"
             android:text=""/>
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mantener la sesion iniciada"
+            android:id="@+id/checkBoxLogin"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ffffff" />
+
     </LinearLayout>
 
     <Button

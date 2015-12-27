@@ -1,5 +1,11 @@
 package coterodev.spaincosplay;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,11 +35,44 @@ public class SplashScreenActivity extends Activity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
+                //Comprobar si existe el archivo
+                String ret = "";
+                try {
+                   //FileInputStream fis = new FileInputStream(getFileStreamPath("datos.sp"));
 
-                // Start the next activity
-                Intent mainIntent = new Intent().setClass(
-                        SplashScreenActivity.this, LoginActivity.class);
-                startActivity(mainIntent);
+                    //InputStream inputStream = openFileInput("/data/user/0/coterodev.spaincosplay/files/datos.sp");
+                    //InputStream inputStream = openFileInput("/data/data/coterodev.spaincosplay/files/datos.sp");
+                    InputStream inputStream = openFileInput("datos.sp");
+                    if (inputStream != null) {
+                        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                        String receiveString = "";
+                        StringBuilder stringBuilder = new StringBuilder();
+
+                        while ((receiveString = bufferedReader.readLine()) != null) {
+                            stringBuilder.append(receiveString);
+                        }
+
+                        inputStream.close();
+                        ret = stringBuilder.toString();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (ret != ""){
+                    // Start the next activity
+                    Intent principalIntent = new Intent().setClass(
+                            SplashScreenActivity.this, PrincipalActivity.class);
+                    startActivity(principalIntent);
+                }else{
+                    // Start the next activity
+                    Intent LoginIntent = new Intent().setClass(
+                            SplashScreenActivity.this, LoginActivity.class);
+                    startActivity(LoginIntent);
+                }
+
 
                 // Close the activity so the user won't able to go back this
                 // activity pressing Back button

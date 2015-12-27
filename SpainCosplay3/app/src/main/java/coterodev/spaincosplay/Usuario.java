@@ -4,24 +4,14 @@ package coterodev.spaincosplay;
  * Created by Azfalot on 17/12/2015.
  */
 public class Usuario {
-    private String Nombre;
     private String Email;
     private String Usuario;
     private String Contraseña;
 
-    public Usuario(String nombre, String email, String usuario, String contraseña) {
-        Nombre = nombre;
+    public Usuario(String email, String usuario, String contraseña) {
         Email = email;
         Usuario = usuario;
         Contraseña = contraseña;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String nombre) {
-        Nombre = nombre;
     }
 
     public String getEmail() {
