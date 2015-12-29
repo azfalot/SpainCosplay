@@ -116,13 +116,16 @@ public class LoginActivity extends AppCompatActivity {
     private void crearInformacionCuenta(Usuario _usuario) {
 
         String fichero = "datos.sp";
+        String usuario = "1"+_usuario.getUsuario();
+        String email = "2"+_usuario.getEmail();
+        String contraseña = "3"+_usuario.getContraseña();
         FileOutputStream fos;
         try{
             fos = openFileOutput(fichero, Context.MODE_PRIVATE);
             this.getFilesDir();
-            fos.write(_usuario.getUsuario().getBytes());
-            fos.write(_usuario.getEmail().getBytes());
-            fos.write(_usuario.getContraseña().getBytes());
+            fos.write(usuario.getBytes());
+            fos.write(email.getBytes());
+            fos.write(contraseña.getBytes());
             fos.close();
         } catch (FileNotFoundException e) {
             Log.e("Spain Cosplay:",e.getMessage(),e);

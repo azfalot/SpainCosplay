@@ -16,7 +16,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="339dp"
         android:gravity="center"
 
         android:layout_marginBottom="150dp"
@@ -46,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/nameR"
-                android:text=""/>
+                android:text=""
+                android:textColor="@android:color/white"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -66,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:id="@+id/emailR"
-                android:text=""/>
+                android:text=""
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
         <LinearLayout
@@ -90,7 +92,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/userR"
-                android:text=""/>
+                android:text=""
+                android:textColor="@android:color/white"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -110,7 +113,8 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:id="@+id/passR"
-            android:text=""/>
+            android:text=""
+            android:textColor="@android:color/white"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -130,16 +134,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:id="@+id/passR2"
-                android:text=""/>
+                android:text=""
+                android:textColor="@android:color/white"/>
         </LinearLayout>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Aceptar"
             android:id="@+id/registarUsuarioBtn"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/white"/>
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </LinearLayout>

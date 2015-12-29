@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -13,7 +16,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 /**
  * Created by Carlos on 04/12/2015.
@@ -62,10 +68,14 @@ public class SplashScreenActivity extends Activity {
                     e.printStackTrace();
                 }
                 if (ret != ""){
-                    // Start the next activity
-                    Intent principalIntent = new Intent().setClass(
-                            SplashScreenActivity.this, PrincipalActivity.class);
-                    startActivity(principalIntent);
+
+                    if(comprobarUsuario(ret)== true){
+                        // Start the next activity
+                        Intent principalIntent = new Intent().setClass(
+                                SplashScreenActivity.this, PrincipalActivity.class);
+                        startActivity(principalIntent);
+                    }
+
                 }else{
                     // Start the next activity
                     Intent LoginIntent = new Intent().setClass(
@@ -84,5 +94,41 @@ public class SplashScreenActivity extends Activity {
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
     }
+
+    public boolean comprobarUsuario(String datos){
+        boolean acertijo = false;
+        String usuario = datos.substring(datos.indexOf("1")+1,datos.indexOf("2"));
+        String email = datos.substring(datos.indexOf("2")+1,datos.indexOf("3"));
+        String contraseña = datos.substring(datos.indexOf("3")+1);
+        String correo, password;
+
+        try{
+            URL url = new URL("http://coterodev.esy.es/usuarios/auth_user.php?@utz89107$a=" + usuario);
+
+            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+            if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+                String lectura = reader.readLine();
+                if (lectura.length() > 6) {
+                    correo = lectura.substring(1, lectura.indexOf(" ")).toString();
+                    password = lectura.substring(lectura.indexOf(" ") + 1).toString();
+                    //Si contienen datos Acedemos
+                    if (contraseña.equalsIgnoreCase(password) && email.equalsIgnoreCase(correo)) {
+                        acertijo =  true;
+                    } else {
+                        acertijo = false;
+                    }
+                }
+                else{return  false;}
+            }
+
+        } catch (MalformedURLException e) {
+            Log.e("Spain Cosplay:", e.getMessage(), e);
+        } catch (IOException e) {
+            Log.e("Spain Cosplay:", e.getMessage(), e);
+        }
+        return  acertijo;
+    }
+
 
 }
