@@ -6,35 +6,38 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="30dp"
-    android:background="@drawable/large">
+    android:background="@color/colorPaula">
 
-    <!--<TextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spain Cosplay"
         android:id="@+id/tituloprincipal"
-        android:gravity="center"
-        android:textSize="25dp"
+        android:textSize="35dp"
         android:layout_marginBottom="20sp"
-        android:textColor="@android:color/white"
-        android:layout_gravity="center_horizontal" /> -->
+        android:textColor="@android:color/white" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/eventosBtn"
         android:id="@+id/verEventos"
-        android:background="@drawable/botonprincipal"/>
+        android:textColor="@android:color/white"
+        android:background="@color/colorPaulaComplementario"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/ajustesBtn"
         android:id="@+id/ajustes"
-        android:background="@drawable/botonprincipal"/>
+        android:textColor="@android:color/white"
+        android:background="@color/colorPaulaComplementario"
+        android:layout_marginTop="5dp"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/salirBtn"
+        android:textColor="@android:color/white"
         android:id="@+id/salir"
-        android:background="@drawable/botonprincipal"/>
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPaulaComplementario"/>
 </LinearLayout>

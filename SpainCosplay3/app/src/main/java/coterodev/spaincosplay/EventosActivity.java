@@ -2,6 +2,7 @@ package coterodev.spaincosplay;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.os.SystemClock;
 import android.widget.ArrayAdapter;
 
@@ -15,6 +16,7 @@ public class EventosActivity extends ListActivity{
 
     EventosNegocio eventosNegocio = new EventosNegocio();
     @Override public void onCreate(Bundle savedInstanceState){
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
         eventosNegocio.execute("http://coterodev.esy.es/eventos/eventos.php");
         try {
             ArrayList arrayList = eventosNegocio.get();
