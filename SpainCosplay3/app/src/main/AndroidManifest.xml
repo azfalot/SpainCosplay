@@ -43,8 +43,9 @@
             android:name=".RegistrarActivity"
             android:label="Registrar"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ListaEventosActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ListaEventosActivity"/>
     </application>
 
 </manifest>

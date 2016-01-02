@@ -16,29 +16,29 @@ public class PrincipalActivity extends Activity{
     public void onCreate(Bundle IstanciaSalvada){
         super.onCreate(IstanciaSalvada);
         setContentView(R.layout.principal_layout2);
-        Button button = (Button)findViewById(R.id.verEventos);
+        Button button = (Button)findViewById(R.id.verEventosBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 lanzarVista("eventos");
             }
         });
-        Button button3 = (Button)findViewById(R.id.acerca_de);
-        button3.setOnClickListener(new View.OnClickListener() {
+        Button button2 = (Button)findViewById(R.id.acercaDeBtn);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 lanzarVista("acercade");
             }
         });
-        Button button4 = (Button)findViewById(R.id.cerrar_sesion);
+        Button button3 = (Button)findViewById(R.id.cerrarSesionBtn);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 lanzarVista("cerrarsesion");
             }
         });
-        Button button5 = (Button)findViewById(R.id.salir);
-        button3.setOnClickListener(new View.OnClickListener() {
+        Button button4 = (Button)findViewById(R.id.salirBtn);
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 lanzarVista("salir");
@@ -49,7 +49,7 @@ public class PrincipalActivity extends Activity{
     public void lanzarVista(String parametro){
         switch (parametro){
             case "eventos":
-                toast = Toast.makeText(getApplicationContext(), "Cargando Eventos... (屮◉◞益◟◉)屮 ", Toast.LENGTH_LONG);
+                toast = Toast.makeText(getApplicationContext(), "Cargando Eventos... (屮◉◞益◟◉)屮 ", Toast.LENGTH_SHORT);
                 toast.show();
                 Intent i = new Intent(PrincipalActivity.this, ListaEventosActivity.class);
                 startActivity(i);

@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/eventosBtn"
-        android:id="@+id/verEventos"
+        android:id="@+id/verEventosBtn"
         android:textColor="@android:color/white"
         android:background="@color/colorPaulaComplementario"/>
     <Button
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="@string/acercade"
         android:textColor="@android:color/white"
-        android:id="@+id/acerca_de"
+        android:id="@+id/acercaDeBtn"
         android:layout_marginTop="5dp"
         android:background="@color/colorPaulaComplementario"/>
     <Button
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cerrarSesion"
         android:textColor="@android:color/white"
-        android:id="@+id/cerrar_sesion"
+        android:id="@+id/cerrarSesionBtn"
         android:layout_marginTop="5dp"
         android:background="@color/colorPaulaComplementario"/>
     <Button
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:text="@string/salirBtn"
         android:textColor="@android:color/white"
-        android:id="@+id/salir"
+        android:id="@+id/salirBtn"
         android:layout_marginTop="5dp"
         android:background="@color/colorPaulaComplementario"/>
 </LinearLayout>
