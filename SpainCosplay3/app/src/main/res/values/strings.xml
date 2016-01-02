@@ -3,7 +3,7 @@
     <string name="app_email">spaincosplay@coterodev.esy.es</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="string_acercade">Acerca de</string>
+    <string name="acercade">Acerca de</string>
     <string name="login">Iniciar sesión</string>
     <string name="register">Registrar</string>
     <string name="registroN">Nuevo Usuario</string>

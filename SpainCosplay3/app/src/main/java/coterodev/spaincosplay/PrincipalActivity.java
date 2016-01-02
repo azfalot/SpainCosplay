@@ -20,39 +20,50 @@ public class PrincipalActivity extends Activity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                lanzarVista("e");
+                lanzarVista("eventos");
             }
         });
-        Button button2 = (Button)findViewById(R.id.ajustes);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                lanzarVista("a");
-            }
-        });
-        Button button3 = (Button)findViewById(R.id.salir);
+        Button button3 = (Button)findViewById(R.id.acerca_de);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                lanzarVista("s");
+                lanzarVista("acercade");
+            }
+        });
+        Button button4 = (Button)findViewById(R.id.cerrar_sesion);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                lanzarVista("cerrarsesion");
+            }
+        });
+        Button button5 = (Button)findViewById(R.id.salir);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                lanzarVista("salir");
             }
         });
     }
 
     public void lanzarVista(String parametro){
         switch (parametro){
-            case "e":
+            case "eventos":
                 toast = Toast.makeText(getApplicationContext(), "Cargando Eventos... (屮◉◞益◟◉)屮 ", Toast.LENGTH_LONG);
                 toast.show();
-                Intent i = new Intent(PrincipalActivity.this, EventosActivity.class);
+                Intent i = new Intent(PrincipalActivity.this, ListaEventosActivity.class);
                 startActivity(i);
                 break;
-            case "a":
-                toast = Toast.makeText(getApplicationContext(), "Estamos en Obras !!!!-   (✖╭╮✖) ", Toast.LENGTH_SHORT);
-                toast.show();
-
+            case "acercade":
+                i = new Intent(this, AcercaDe.class);
+                startActivity(i);
                 break;
-            case "s":
+            case "cerrarsesion":
+                i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                finish();
+                break;
+            case "salir":
                 finish();
                 System.exit(0);
                 break;
