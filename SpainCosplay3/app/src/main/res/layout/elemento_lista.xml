@@ -10,6 +10,7 @@
         android:id="@+id/cartel"
         android:background="#A8B5C3"
         android:layout_alignParentLeft="true"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -42,5 +43,7 @@
             android:text="Lugar"
             android:id="@+id/lugarEvento"
             android:layout_below="@id/fechaEvento"/>
+
     </LinearLayout>
+
 </RelativeLayout>
