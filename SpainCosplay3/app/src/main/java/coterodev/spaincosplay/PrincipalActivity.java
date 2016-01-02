@@ -12,6 +12,8 @@ import android.widget.Toast;
  */
 public class PrincipalActivity extends Activity{
     Toast toast;
+    Intent i;
+    int resultado;
     @Override
     public void onCreate(Bundle IstanciaSalvada){
         super.onCreate(IstanciaSalvada);
@@ -44,13 +46,12 @@ public class PrincipalActivity extends Activity{
             case "e":
                 toast = Toast.makeText(getApplicationContext(), "Cargando Eventos... (屮◉◞益◟◉)屮 ", Toast.LENGTH_LONG);
                 toast.show();
-                Intent i = new Intent(PrincipalActivity.this, EventosActivity.class);
+                 i = new Intent(this, EventosActivity.class);
                 startActivity(i);
                 break;
             case "a":
-                toast = Toast.makeText(getApplicationContext(), "Estamos en Obras !!!!-   (✖╭╮✖) ", Toast.LENGTH_SHORT);
-                toast.show();
-
+                Intent i = new Intent(this, AjustesActivity.class);
+                startActivity(i);
                 break;
             case "s":
                 finish();
@@ -58,4 +59,5 @@ public class PrincipalActivity extends Activity{
                 break;
         }
     }
+
 }
