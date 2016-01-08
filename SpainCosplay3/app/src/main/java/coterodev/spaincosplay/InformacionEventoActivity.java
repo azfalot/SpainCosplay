@@ -38,7 +38,6 @@ public class InformacionEventoActivity extends Activity {
         Bitmap imagen = null;
         try {
             imagen = obtenerImagenEvento.get();
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

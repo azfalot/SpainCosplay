@@ -3,6 +3,7 @@ package coterodev.spaincosplay;
 import android.app.ListActivity;
 import android.app.usage.UsageEvents;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,7 +41,8 @@ public class ListaEventosActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
         Evento Salon = null;
         String eventoSeleccionado = l.getItemAtPosition(position).toString();
-        String url= eventoSeleccionado.replace(" ","%20");
+        String url = Uri.encode(eventoSeleccionado);
+        //String url= eventoSeleccionado.replace(" ","%20");
         negociador.execute(direccion+url);
         try {
             Salon = negociador.get();
