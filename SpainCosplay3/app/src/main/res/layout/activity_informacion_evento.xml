@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="coterodev.spaincosplay.InformacionEventoActivity"
+    android:padding="20dp"
+    android:background="@color/colorPaula">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/InfCartelEvento"
+        android:contentDescription="@string/cartelEvento"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPaulaComplementario">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/InfnombreEvento"
+            android:textColor="@android:color/white"
+            android:text="Evento"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/InffechaEvento"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:text="Fecha" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/InflugarEvento"
+                android:textColor="@android:color/white"
+                android:layout_weight="0.97"
+                android:text="Lugar"
+                android:textAlignment="center"/>
+
+            <Button
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/InfgeoLocaBtn"
+                android:background="@android:drawable/ic_dialog_map"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

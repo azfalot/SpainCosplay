@@ -1,9 +1,11 @@
 package coterodev.spaincosplay;
 
+import java.io.Serializable;
+
 /**
  * Created by carlos on 23/12/2015.
  */
-public class Evento {
+public class Evento implements Serializable{
 
     private String nombre;
     private String lugar;

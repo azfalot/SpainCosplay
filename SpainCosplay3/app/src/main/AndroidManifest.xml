@@ -3,6 +3,7 @@
     package="coterodev.spaincosplay">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
 
     <application
         android:allowBackup="true"
@@ -23,16 +24,16 @@
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PrincipalActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".EventosActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".AcercaDe"
             android:label="Acerca de.." />
@@ -43,9 +44,13 @@
             android:name=".RegistrarActivity"
             android:label="Registrar"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListaEventosActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".ListaEventosActivity"/>
+            android:name=".InformacionEventoActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

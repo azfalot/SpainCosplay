@@ -1,6 +1,8 @@
 package coterodev.spaincosplay;
 
 import android.app.ListActivity;
+import android.app.usage.UsageEvents;
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,18 +11,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class ListaEventosActivity extends ListActivity {
-
-    ListaEventosNegocio eventosNegocio = new ListaEventosNegocio();
+    String direccion = "http://coterodev.esy.es/eventos/eventoNombre.php?nombreEvento=";
+    ListaEventosNegocio ListaNegocio = new ListaEventosNegocio();
+    EventoNegocio negociador = new EventoNegocio();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
-        eventosNegocio.execute("http://coterodev.esy.es/eventos/eventosFecha.php");
+        ListaNegocio.execute("http://coterodev.esy.es/eventos/eventosFecha.php");
         try {
-            eventosNegocio.get();
+            ListaNegocio.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -28,16 +32,29 @@ public class ListaEventosActivity extends ListActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_eventos);
-        setListAdapter(new ArrayAdapter<String>(this,R.layout.objeto_lista,eventosNegocio.getNombres()));
+        setListAdapter(new ArrayAdapter<String>(this, R.layout.objeto_lista, ListaNegocio.getNombres()));
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        // TODO Auto-generated method stub
-        //super.onListItemClick(l, v, position, id);
-        String selection = l.getItemAtPosition(position).toString();
-        //segun el texto seleccionado hacer una consulta para ese evento y cargar un layout con la informacion deseada
-        Toast.makeText(this, selection, Toast.LENGTH_LONG).show();
+        super.onListItemClick(l, v, position, id);
+        Evento Salon = null;
+        String eventoSeleccionado = l.getItemAtPosition(position).toString();
+        String url= eventoSeleccionado.replace(" ","%20");
+        negociador.execute(direccion+url);
+        try {
+            Salon = negociador.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        if (Salon != null){
+            //Lanzar nuevo Activity
+            Intent i = new Intent(this, InformacionEventoActivity.class);
+            i.putExtra("EventoP", (Serializable) Salon);
+            startActivity(i);
+        }
 
     }
 }

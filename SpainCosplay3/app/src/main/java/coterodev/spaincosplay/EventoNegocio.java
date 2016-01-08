@@ -8,29 +8,22 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
- * Created by carlos on 23/12/2015.
+ * Created by carlos on 07/01/2016.
  */
+public class EventoNegocio extends AsyncTask<String,Void,Evento>{
 
-public class EventosNegocio extends AsyncTask<String,Void,ArrayList>{
-    InputStream is = null;
-    String urlEventos = "http://coterodev.esy.es/eventos/eventos.php";
-    String line = null;
-    String resultado = null;
+    String resultado, line;
+    Evento eventoRespuesta;
 
-    public ArrayList<Evento> listaEventos;
-    public String[] nombres, lugares, fecha ,fechab ,cartel;
 
     @Override
-    protected ArrayList doInBackground(String... params) {
-
+    protected Evento doInBackground(String... params) {
         try {
             URL url = new URL(params[0]);
             HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
@@ -57,39 +50,19 @@ public class EventosNegocio extends AsyncTask<String,Void,ArrayList>{
 
             //nombres, lugares, fecha ,fechab ,cartel;
 
-            nombres = new String[jArray.length()];
-            lugares = new String[jArray.length()];
-            fecha = new String[jArray.length()];
-            fechab = new String[jArray.length()];
-            cartel = new String[jArray.length()];
-
             for (int i = 0; i < jArray.length(); i++) {
-
                 jObjeto = jArray.getJSONObject(i);
-                nombres[i] = jObjeto.getString("nombre");
-                lugares[i] = jObjeto.getString("lugar");
-                fecha[i] = jObjeto.getString("fecha");
-                fechab[i] = jObjeto.getString("fecha_fin");
-                cartel[i] = jObjeto.getString("cartel");
-
+                eventoRespuesta = new Evento(jObjeto.getString("nombre"),
+                                             jObjeto.getString("lugar"),
+                                             jObjeto.getString("fecha"),
+                                             jObjeto.getString("fecha_fin"),
+                                             jObjeto.getString("cartel"));
             }
 
         } catch (Exception e) {
             Log.e("A JSON", e.toString());
         }
 
-        return null;
-    }
-
-    public ArrayList cargarEventos(){
-        listaEventos = new ArrayList<Evento>();
-        Evento nuevoEvento;
-
-        for (int i = 0; i < nombres.length; i ++) {
-            nuevoEvento = new Evento(nombres[i], lugares[i], fecha[i], fechab[i], cartel[i]);
-            listaEventos.add(nuevoEvento);
-        }
-
-        return  listaEventos;
+        return eventoRespuesta;
     }
 }

@@ -11,4 +11,5 @@
     <string name="ajustesBtn">Ajustes</string>
     <string name="salirBtn">Salir</string>
     <string name="cerrarSesion">Cerrar Sesion</string>
+    <string name="cartelEvento">Imagen Cartel</string>
 </resources>
