@@ -15,11 +15,13 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class ListaEventosActivity extends ListActivity {
     String direccion = "http://coterodev.esy.es/eventos/eventoNombre.php?nombreEvento=";
     ListaEventosNegocio ListaNegocio = new ListaEventosNegocio();
-    EventoNegocio negociador = new EventoNegocio();
+    EventoNegocio negociador ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
@@ -39,17 +41,18 @@ public class ListaEventosActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
+        negociador = new EventoNegocio();
         Evento Salon = null;
         String eventoSeleccionado = l.getItemAtPosition(position).toString();
         String url = Uri.encode(eventoSeleccionado);
         //String url= eventoSeleccionado.replace(" ","%20");
-        negociador.execute(direccion+url);
         try {
+            negociador.execute(direccion+url);
             Salon = negociador.get();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Toast.makeText(this.getApplicationContext(),"Interrumpido",Toast.LENGTH_SHORT).show();
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            Toast.makeText(this.getApplicationContext(),"Error con tarea asyncrona",Toast.LENGTH_SHORT).show();
         }
         if (Salon != null){
             //Lanzar nuevo Activity

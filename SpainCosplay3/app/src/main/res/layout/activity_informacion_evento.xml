@@ -7,7 +7,14 @@
     android:orientation="vertical"
     tools:context="coterodev.spaincosplay.InformacionEventoActivity"
     android:padding="20dp"
-    android:background="@color/colorPaula">
+    android:background="@color/colorPaula"
+    android:baselineAligned="false"
+    android:clickable="true"
+    android:contextClickable="true"
+    android:contentDescription="Ver Ruta"
+    android:elevation="80dp"
+    android:duplicateParentState="true"
+    android:focusable="true">
 
     <ImageView
         android:layout_width="match_parent"
@@ -58,7 +65,8 @@
                 android:layout_width="55dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/InfgeoLocaBtn"
-                android:background="@android:drawable/ic_dialog_map"/>
+                android:background="@android:drawable/ic_dialog_map"
+                android:backgroundTint="#ffffff" />
 
         </LinearLayout>
 

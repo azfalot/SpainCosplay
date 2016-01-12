@@ -18,25 +18,28 @@ import java.util.concurrent.ExecutionException;
 
 public class InformacionEventoActivity extends Activity {
 
-    ObtenerImagenEvento obtenerImagenEvento;
+    ObtenerImagenEvento obtenerImagenEvento = new ObtenerImagenEvento();
     String lugarEvento = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Evento objetoEvento = (Evento)getIntent().getExtras().getSerializable("EventoP");
+        //Estructura
         setContentView(R.layout.activity_informacion_evento);
-        obtenerImagenEvento = new ObtenerImagenEvento();
         TextView nombre = (TextView) findViewById(R.id.InfnombreEvento);
         TextView fecha = (TextView) findViewById(R.id.InffechaEvento);
         TextView lugar = (TextView) findViewById(R.id.InflugarEvento);
+        ImageView imagenCartel =(ImageView) findViewById(R.id.InfCartelEvento);
+        //Getter Objeto evento
+        Evento objetoEvento = (Evento)getIntent().getExtras().getSerializable("EventoP");
+        //Setters
         nombre.setText(objetoEvento.getNombre());
         fecha.setText(objetoEvento.getFecha()+" - "+objetoEvento.getFecha_fin());
         lugar.setText(objetoEvento.getLugar());
         lugarEvento = objetoEvento.getLugar();
-        ImageView imagenCartel =(ImageView) findViewById(R.id.InfCartelEvento);
-        obtenerImagenEvento.execute(objetoEvento.getCartel());
+        //Cargando Imagen
         Bitmap imagen = null;
         try {
+            obtenerImagenEvento.execute(objetoEvento.getCartel());
             imagen = obtenerImagenEvento.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -44,7 +47,7 @@ public class InformacionEventoActivity extends Activity {
             e.printStackTrace();
         }
         imagenCartel.setImageBitmap(imagen);
-
+        //Evento onClick - Lanzar Ruta Google Maps
         Button GeoBoton = (Button)findViewById(R.id.InfgeoLocaBtn);
         GeoBoton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,19 +57,7 @@ public class InformacionEventoActivity extends Activity {
             }
         });
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
-    }
-
+    //Deberia entrar SIEMPRE
     @Override
     public void onBackPressed() {
         super.onBackPressed();

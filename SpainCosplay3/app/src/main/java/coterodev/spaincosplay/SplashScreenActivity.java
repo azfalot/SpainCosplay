@@ -42,7 +42,7 @@ public class SplashScreenActivity extends Activity {
             @Override
             public void run() {
                 //Comprobar si existe el archivo
-                String ret = "";
+                /*String ret = "";
                 try {
                    //FileInputStream fis = new FileInputStream(getFileStreamPath("datos.sp"));
 
@@ -81,8 +81,13 @@ public class SplashScreenActivity extends Activity {
                     Intent LoginIntent = new Intent().setClass(
                             SplashScreenActivity.this, LoginActivity.class);
                     startActivity(LoginIntent);
-                }
+                }*/
 
+
+                // TODO EL CODIGO COMENTADO ANTES ES PARA LAS NUEVAS FUNCIONALIDADES
+                Intent Principal = new Intent().setClass(
+                SplashScreenActivity.this, PrincipalActivity.class);
+                startActivity(Principal);
 
                 // Close the activity so the user won't able to go back this
                 // activity pressing Back button

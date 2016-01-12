@@ -32,14 +32,14 @@
         android:id="@+id/acercaDeBtn"
         android:layout_marginTop="5dp"
         android:background="@color/colorPaulaComplementario"/>
-    <Button
+    <!--<Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cerrarSesion"
         android:textColor="@android:color/white"
         android:id="@+id/cerrarSesionBtn"
         android:layout_marginTop="5dp"
-        android:background="@color/colorPaulaComplementario"/>
+        android:background="@color/colorPaulaComplementario"/>-->
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

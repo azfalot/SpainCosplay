@@ -63,6 +63,7 @@ public class EventoNegocio extends AsyncTask<String,Void,Evento>{
             Log.e("A JSON", e.toString());
         }
 
+
         return eventoRespuesta;
     }
 }

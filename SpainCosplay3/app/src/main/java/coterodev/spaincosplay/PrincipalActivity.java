@@ -10,7 +10,7 @@ import android.widget.Toast;
 /**
  * Created by Azfalot on 24/12/2015.
  */
-public class PrincipalActivity extends Activity{
+public class PrincipalActivity extends Activity {
     Toast toast;
     @Override
     public void onCreate(Bundle IstanciaSalvada){
@@ -30,13 +30,13 @@ public class PrincipalActivity extends Activity{
                 lanzarVista("acercade");
             }
         });
-        Button button3 = (Button)findViewById(R.id.cerrarSesionBtn);
+       /* Button button3 = (Button)findViewById(R.id.cerrarSesionBtn);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 lanzarVista("cerrarsesion");
             }
-        });
+        });*/
         Button button4 = (Button)findViewById(R.id.salirBtn);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
