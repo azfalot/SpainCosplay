@@ -3,15 +3,15 @@
     <string name="app_email">spaincosplay@coterodev.esy.es</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="acercade">About</string>
+    <string name="acercade">およそ</string>
     <string name="login">Iniciar sesión</string>
     <string name="register">Registrar</string>
     <string name="registroN">Nuevo Usuario</string>
-    <string name="eventosBtn">Information Events</string>
-    <string name="ajustesBtn">Settings</string>
-    <string name="salirBtn">Exit</string>
+    <string name="eventosBtn">イベント</string>
+    <string name="ajustesBtn">Ajustes</string>
+    <string name="salirBtn">クローズ</string>
     <string name="cerrarSesion">Cerrar Sesion</string>
     <string name="cartelEvento">Imagen Cartel</string>
-    <string name="proximos">Upcoming Events</string>
-    <string name="cargando">Loading Events... (屮◉◞益◟◉)屮</string>
+    <string name="proximos">今後のイベント</string>
+    <string name="cargando">ローディング... (屮◉◞益◟◉)屮</string>
 </resources>

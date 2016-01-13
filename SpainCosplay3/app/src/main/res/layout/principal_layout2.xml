@@ -8,6 +8,32 @@
     android:padding="30dp"
     android:background="@color/colorPaula">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:id="@+id/español"
+            android:background="@drawable/es" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:id="@+id/ingles"
+            android:background="@drawable/uk"/>
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:id="@+id/japones"
+            android:background="@drawable/ja"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
