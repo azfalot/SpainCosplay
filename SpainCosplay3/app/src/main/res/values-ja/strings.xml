@@ -14,4 +14,5 @@
     <string name="cartelEvento">Imagen Cartel</string>
     <string name="proximos">今後のイベント</string>
     <string name="cargando">ローディング... (屮◉◞益◟◉)屮</string>
+    <string name="order">日付</string>
 </resources>

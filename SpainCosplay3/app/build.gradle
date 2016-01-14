@@ -9,8 +9,8 @@ android {
         applicationId 'coterodev.spaincosplay'
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "Beta"
+        versionCode 2
+        versionName "Villa_Foosha"
     }
     buildTypes {
         release {

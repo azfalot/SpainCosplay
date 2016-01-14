@@ -14,4 +14,5 @@
     <string name="cartelEvento">Imagen Cartel</string>
     <string name="proximos">Upcoming Events</string>
     <string name="cargando">Loading Events... (屮◉◞益◟◉)屮</string>
+    <string name="order">Closest date</string>
 </resources>
