@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,6 +37,17 @@ public class ListaEventosActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_eventos);
         setListAdapter(new ArrayAdapter<String>(this, R.layout.objeto_lista, ListaNegocio.getNombres()));
+
+
+        //Funcion boton info
+        Button infoBoton = (Button)findViewById(R.id.informacionBtn);
+        infoBoton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(getApplicationContext(),InformacionActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

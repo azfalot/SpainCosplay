@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (checkBoxInicio.isChecked()){
                                         crearInformacionCuenta(_usuario);
                                     }
-                                    //Lanzamos MainActivity
+                                    //Lanzamos Actividad Principal
                                     Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
                                     startActivity(i);
                                     finish();

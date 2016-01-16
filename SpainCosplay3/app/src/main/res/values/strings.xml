@@ -15,4 +15,7 @@
     <string name="proximos">Upcoming Events</string>
     <string name="cargando">Loading Events... (屮◉◞益◟◉)屮</string>
     <string name="order">Closest date</string>
+    <string name="title_activity_informacion">InformacionActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
