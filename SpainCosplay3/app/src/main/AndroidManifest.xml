@@ -48,7 +48,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".InformacionActivity"
-            android:label="@string/title_activity_informacion"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
