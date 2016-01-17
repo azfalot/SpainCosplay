@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+
 import java.util.Locale;
 
 /**
@@ -21,21 +23,16 @@ public class PrincipalActivity extends Activity {
     @Override
     public void onCreate(Bundle IstanciaSalvada){
         super.onCreate(IstanciaSalvada);
+        //FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.principal_layout2);
-        Button button = (Button)findViewById(R.id.verEventosBtn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                lanzarVista("eventos");
-            }
-        });
-        Button button2 = (Button)findViewById(R.id.acercaDeBtn);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                lanzarVista("acercade");
-            }
-        });
+        //Declaracion botones
+        Button verEventos = (Button)findViewById(R.id.verEventosBtn);
+        Button acercaDe = (Button)findViewById(R.id.acercaDeBtn);
+        Button salirBtn = (Button)findViewById(R.id.salirBtn);
+        Button ingles = (Button)findViewById(R.id.ingles);
+        Button español = (Button)findViewById(R.id.español);
+        Button japones = (Button)findViewById(R.id.japones);
+        Button compartir = (Button)findViewById(R.id.share);
        /* Button button3 = (Button)findViewById(R.id.cerrarSesionBtn);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,16 +40,31 @@ public class PrincipalActivity extends Activity {
                 lanzarVista("cerrarsesion");
             }
         });*/
-        Button button4 = (Button)findViewById(R.id.salirBtn);
-        button4.setOnClickListener(new View.OnClickListener() {
+        //Eventos
+        verEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                lanzarVista("eventos");
+            }
+        });
+        acercaDe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                lanzarVista("acercade");
+            }
+        });
+        salirBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 lanzarVista("salir");
             }
         });
-        Button ingles = (Button)findViewById(R.id.ingles);
-        Button español = (Button)findViewById(R.id.español);
-        Button japones = (Button)findViewById(R.id.japones);
+        compartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                lanzarVista("compartir");
+            }
+        });
         ingles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -76,10 +88,10 @@ public class PrincipalActivity extends Activity {
     public void lanzarVista(String parametro){
         switch (parametro){
             case "eventos":
-                toast = Toast.makeText(getApplicationContext(), R.string.cargando, Toast.LENGTH_SHORT);
-                toast.show();
                 Intent i = new Intent(PrincipalActivity.this, ListaEventosActivity.class);
                 startActivity(i);
+                toast = Toast.makeText(getApplicationContext(), R.string.cargando, Toast.LENGTH_SHORT);
+                toast.show();
                 break;
             case "acercade":
                 i = new Intent(this, AcercaDe.class);
@@ -93,6 +105,14 @@ public class PrincipalActivity extends Activity {
             case "salir":
                 finish();
                 System.exit(0);
+                break;
+            case "compartir":
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Comprueba los próximos eventos a través de esta aplicación: https://play.google.com/store/apps/details?id=coterodev.spaincosplay");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
                 break;
         }
     }

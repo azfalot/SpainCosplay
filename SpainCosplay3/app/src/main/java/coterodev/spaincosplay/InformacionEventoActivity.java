@@ -27,21 +27,25 @@ public class InformacionEventoActivity extends Activity {
         TextView fecha = (TextView) findViewById(R.id.InffechaEvento);
         TextView lugar = (TextView) findViewById(R.id.InflugarEvento);
         ImageView imagenCartel =(ImageView) findViewById(R.id.InfCartelEvento);
+        Button GeoBoton = (Button)findViewById(R.id.InfgeoLocaBtn);
+        Button FbBtn = (Button)findViewById(R.id.fbBtn);
 
         //Getter Objeto evento
-        Evento objetoEvento = (Evento)getIntent().getExtras().getSerializable("EventoP");
+        final Evento objetoEvento = (Evento)getIntent().getExtras().getSerializable("EventoP");
         //Setters
         nombre.setText(objetoEvento.getNombre());
         fecha.setText(objetoEvento.getFecha()+" - "+objetoEvento.getFecha_fin());
 
         if (objetoEvento.getLugar().toString().equals("npi")) {
-            //lugar.setText("");
-            //lugarEvento =  objetoEvento.getLugar();
-            LinearLayout layoutRuta = (LinearLayout) findViewById(R.id.ruta);
-            layoutRuta.setVisibility(View.INVISIBLE);
+            lugar.setText("Ubicacion desconocida");
+            GeoBoton.setVisibility(View.INVISIBLE);
         }else{
             lugar.setText(objetoEvento.getLugar());
             lugarEvento = objetoEvento.getLugar();
+        }
+
+        if (objetoEvento.getFacebook().toString().equals("")){
+            FbBtn.setVisibility(View.INVISIBLE);
         }
         //Cargando Imagen
         Bitmap imagen = null;
@@ -55,7 +59,15 @@ public class InformacionEventoActivity extends Activity {
         }
         imagenCartel.setImageBitmap(imagen);
         //Evento onClick - Lanzar Ruta Google Maps
-        Button GeoBoton = (Button)findViewById(R.id.InfgeoLocaBtn);
+
+        FbBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                String url = "fb://facewebmodal/f?href=" +objetoEvento.getFacebook().toString();
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
+        });
         GeoBoton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

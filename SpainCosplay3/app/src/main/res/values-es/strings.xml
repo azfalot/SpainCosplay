@@ -16,4 +16,5 @@
     <string name="cargando">Cargando Eventos... (屮◉◞益◟◉)屮 </string>
     <string name="order">Fecha mas cercana</string>
     <string name="section_format">Estamos en pruebas, Seccion: %1$d</string>
+    <string name="facebook_app_id">1051235838231573</string>
 </resources>

@@ -18,7 +18,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="370dp"
         android:id="@+id/InfCartelEvento"
         android:contentDescription="@string/cartelEvento"
         android:layout_marginBottom="20dp"
@@ -27,9 +27,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPaulaComplementario"
-        android:layout_marginBottom="10dp">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPaulaComplementario">
 
         <TextView
             android:layout_width="match_parent"
@@ -47,31 +46,36 @@
             android:textColor="@android:color/white"
             android:textAlignment="center"
             android:text="Fecha" />
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:layout_marginBottom="2dp"
-            android:id="@+id/ruta">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:id="@+id/InflugarEvento"
-                android:textColor="@android:color/white"
-                android:layout_weight="0.97"
-                android:text="Lugar"
-                android:textAlignment="center"/>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/InflugarEvento"
+            android:textColor="@android:color/white"
+            android:text="Lugar"
+            android:textAlignment="center"/>
+    </LinearLayout>
 
-            <Button
-                android:layout_width="74px"
-                android:layout_height="74px"
-                android:id="@+id/InfgeoLocaBtn"
-                android:background="@drawable/gmaps" />
-        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
 
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/fbBtn"
+            android:background="@drawable/fb"
+
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/InfgeoLocaBtn"
+            android:background="@drawable/gmaps"/>
 
     </LinearLayout>
 

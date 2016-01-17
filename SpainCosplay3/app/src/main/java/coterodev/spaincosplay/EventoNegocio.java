@@ -56,7 +56,8 @@ public class EventoNegocio extends AsyncTask<String,Void,Evento>{
                                              jObjeto.getString("lugar"),
                                              jObjeto.getString("fecha"),
                                              jObjeto.getString("fecha_fin"),
-                                             jObjeto.getString("cartel"));
+                                             jObjeto.getString("cartel"),
+                                             jObjeto.getString("facebook"));
             }
 
         } catch (Exception e) {

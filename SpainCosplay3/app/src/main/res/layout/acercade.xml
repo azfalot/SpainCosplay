@@ -34,6 +34,13 @@
             android:text="@string/app_email"
             android:id="@+id/textView3"
             android:textColor="@android:color/white"/>
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/fb"
+            android:id="@+id/faceBtn"
+            android:layout_marginTop="5dp"/>
     </LinearLayout>
 
 </RelativeLayout>

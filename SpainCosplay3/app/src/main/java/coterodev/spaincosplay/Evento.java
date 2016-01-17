@@ -12,13 +12,15 @@ public class Evento implements Serializable{
     private String fecha;
     private String fecha_fin;
     private String cartel;
+    private String facebook;
 
-    public Evento(String nombre, String lugar, String fecha, String fecha_fin, String cartel) {
+    public Evento(String nombre, String lugar, String fecha, String fecha_fin, String cartel, String facebook) {
         this.nombre = nombre;
         this.lugar = lugar;
         this.fecha = fecha;
         this.fecha_fin = fecha_fin;
         this.cartel = cartel;
+        this.facebook = facebook;
     }
 
     public String getNombre() {
@@ -59,5 +61,13 @@ public class Evento implements Serializable{
 
     public void setCartel(String cartel) {
         this.cartel = cartel;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 }

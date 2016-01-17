@@ -16,4 +16,5 @@
     <string name="cargando">ローディング... (屮◉◞益◟◉)屮</string>
     <string name="order">日付</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="facebook_app_id">1051235838231573</string>
 </resources>

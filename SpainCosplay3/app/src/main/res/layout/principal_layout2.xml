@@ -74,4 +74,15 @@
         android:id="@+id/salirBtn"
         android:layout_marginTop="5dp"
         android:background="@color/colorPaulaComplementario"/>
+
+    <Button
+        android:layout_width="39dp"
+        android:layout_height="33dp"
+        android:id="@+id/share"
+        android:background="@android:drawable/ic_menu_share"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@android:color/background_light"
+        android:layout_gravity="center_horizontal" />
+
+    <!--<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>-->
 </LinearLayout>

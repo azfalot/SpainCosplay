@@ -36,10 +36,16 @@ public class ListaEventosActivity extends ListActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_eventos);
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.objeto_lista, ListaNegocio.getNombres()));
+        try {
+            setListAdapter(new ArrayAdapter<String>(this, R.layout.objeto_lista, ListaNegocio.getNombres()));
+        }catch (Exception e){
+            Toast.makeText(this.getApplicationContext(), "No se ha podido cargar la información, compruebe su conexión de red",Toast.LENGTH_LONG).show();
+            finish();
+        }
 
 
-        //Funcion boton info
+        /*
+        //Funcion boton info - comentado
         Button infoBoton = (Button)findViewById(R.id.informacionBtn);
         infoBoton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +53,7 @@ public class ListaEventosActivity extends ListActivity {
                 Intent i = new Intent(getApplicationContext(),InformacionActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
     }
 
     @Override
@@ -65,6 +71,8 @@ public class ListaEventosActivity extends ListActivity {
             Toast.makeText(this.getApplicationContext(),"Interrumpido",Toast.LENGTH_SHORT).show();
         } catch (ExecutionException e) {
             Toast.makeText(this.getApplicationContext(),"Error con tarea asyncrona",Toast.LENGTH_SHORT).show();
+        }catch (NullPointerException e){
+            Toast.makeText(this.getApplicationContext(), "No se ha podido cargar la información, compruebe su conexión de red",Toast.LENGTH_SHORT).show();
         }
         if (Salon != null){
             //Lanzar nuevo Activity
