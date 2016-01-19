@@ -18,7 +18,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="370dp"
+        android:layout_height="300dp"
         android:id="@+id/InfCartelEvento"
         android:contentDescription="@string/cartelEvento"
         android:layout_marginBottom="20dp"

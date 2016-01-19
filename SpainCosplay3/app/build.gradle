@@ -9,8 +9,8 @@ android {
         applicationId 'coterodev.spaincosplay'
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 7
-        versionName "Shells_Town"
+        versionCode 8
+        versionName "Ciudad_Orange"
     }
     buildTypes {
         release {

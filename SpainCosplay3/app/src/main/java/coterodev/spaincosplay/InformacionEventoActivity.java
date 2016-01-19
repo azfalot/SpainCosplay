@@ -1,15 +1,18 @@
 package coterodev.spaincosplay;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.DeadObjectException;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.concurrent.ExecutionException;
@@ -18,9 +21,11 @@ public class InformacionEventoActivity extends Activity {
 
     ObtenerImagenEvento obtenerImagenEvento = new ObtenerImagenEvento();
     String lugarEvento = null;
+    Context contexto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        contexto =  this.getApplicationContext();
         //Estructura
         setContentView(R.layout.activity_informacion_evento);
         TextView nombre = (TextView) findViewById(R.id.InfnombreEvento);
@@ -64,8 +69,16 @@ public class InformacionEventoActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 String url = "fb://facewebmodal/f?href=" +objetoEvento.getFacebook().toString();
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(i);
+                try{
+
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(i);
+                }catch (Exception d){
+                    //Toast.makeText(contexto, "Es probable que no tenga la aplicacion de Facebook instalada",Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(objetoEvento.getFacebook().toString()));
+                    startActivity(i);
+                }
+
             }
         });
         GeoBoton.setOnClickListener(new View.OnClickListener() {
