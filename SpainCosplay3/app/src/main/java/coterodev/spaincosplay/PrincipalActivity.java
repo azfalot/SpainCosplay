@@ -1,9 +1,15 @@
 package coterodev.spaincosplay;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.drawable.Icon;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -14,9 +20,6 @@ import com.facebook.FacebookSdk;
 
 import java.util.Locale;
 
-/**
- * Created by Azfalot on 24/12/2015.
- */
 public class PrincipalActivity extends Activity {
     Toast toast;
     Locale myLocale;
@@ -33,6 +36,7 @@ public class PrincipalActivity extends Activity {
         Button español = (Button)findViewById(R.id.español);
         Button japones = (Button)findViewById(R.id.japones);
         Button compartir = (Button)findViewById(R.id.share);
+
        /* Button button3 = (Button)findViewById(R.id.cerrarSesionBtn);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +44,7 @@ public class PrincipalActivity extends Activity {
                 lanzarVista("cerrarsesion");
             }
         });*/
+
         //Eventos
         verEventos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,5 +132,28 @@ public class PrincipalActivity extends Activity {
             Intent refresh = new Intent(this, PrincipalActivity.class);
             startActivity(refresh);
             finish();
+    }
+
+    public void cargarNotificacion(){
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification;
+        final String appPackageName = getPackageName();
+        int icon = R.drawable.icono;
+        //Icon icono = Icon.createWithResource(getApplicationContext(),R.drawable.icono);
+        CharSequence tickerText = "Nueva Actualizacion Disponible";
+        long when = System.currentTimeMillis(); //cuando se lanza la nota
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            notification = new Notification.Builder(getApplicationContext())
+                    .setContentText(tickerText)
+                    .setSmallIcon(icon)
+                   // .setLargeIcon(icono)
+                    .setWhen(when)
+                    .build();
+
+        }
+        Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName));
+        PendingIntent contentIntent = PendingIntent.getActivity(this,0,notificationIntent,0);
+        notification.
+
     }
 }

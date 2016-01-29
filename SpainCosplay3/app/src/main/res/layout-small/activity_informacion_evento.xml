@@ -6,77 +6,79 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="coterodev.spaincosplay.InformacionEventoActivity"
-    android:padding="20dp"
+    android:padding="15dp"
     android:background="@color/colorPaula"
-    android:baselineAligned="false"
-    android:clickable="true"
-    android:contextClickable="true"
-    android:contentDescription="Ver Ruta"
-    android:elevation="80dp"
-    android:duplicateParentState="true"
-    android:focusable="true">
+    android:contentDescription="Ver Ruta">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="40dp"
         android:id="@+id/InfCartelEvento"
         android:contentDescription="@string/cartelEvento"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:clickable="true" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPaulaComplementario">
-
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/InfnombreEvento"
-            android:textColor="@android:color/white"
-            android:text="Evento"
-            android:textAlignment="center"/>
-        <TextView
+            android:background="@color/colorPaulaComplementario">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/InfnombreEvento"
+                android:textColor="@android:color/white"
+                android:text="Evento"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/InffechaEvento"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"
+                android:text="Fecha" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/InflugarEvento"
+                android:textColor="@android:color/white"
+                android:text="Lugar"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/InffechaEvento"
-            android:textColor="@android:color/white"
-            android:textAlignment="center"
-            android:text="Fecha" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/InflugarEvento"
-            android:textColor="@android:color/white"
-            android:text="Lugar"
-            android:textAlignment="center"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+            android:layout_marginTop="9dp"
+            android:gravity="center">
 
 
-        <Button
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:id="@+id/fbBtn"
-            android:background="@drawable/fb"
+            <Button
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:id="@+id/fbBtn"
+                android:background="@drawable/fb"/>
 
-            android:layout_marginRight="5dp"/>
+            <Button
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:id="@+id/InfgeoLocaBtn"
+                android:background="@drawable/gmaps"
+                android:layout_marginLeft="10dp"/>
+            <!--
+            <Button
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:id="@+id/InfCompartirBtn"
+                android:background="@android:drawable/ic_menu_share"
+                android:layout_marginLeft="10dp" />-->
 
-        <Button
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:id="@+id/InfgeoLocaBtn"
-            android:background="@drawable/gmaps"/>
-
-    </LinearLayout>
+        </LinearLayout>
 
 </LinearLayout>

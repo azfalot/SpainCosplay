@@ -20,7 +20,7 @@ import java.util.concurrent.ExecutionException;
 public class InformacionEventoActivity extends Activity {
 
     ObtenerImagenEvento obtenerImagenEvento = new ObtenerImagenEvento();
-    String lugarEvento = null;
+    String lugarEvento, nombrEvento, fechaEvento = null;
     Context contexto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +28,14 @@ public class InformacionEventoActivity extends Activity {
         contexto =  this.getApplicationContext();
         //Estructura
         setContentView(R.layout.activity_informacion_evento);
-        TextView nombre = (TextView) findViewById(R.id.InfnombreEvento);
-        TextView fecha = (TextView) findViewById(R.id.InffechaEvento);
-        TextView lugar = (TextView) findViewById(R.id.InflugarEvento);
+         TextView nombre = (TextView) findViewById(R.id.InfnombreEvento);
+         TextView fecha = (TextView) findViewById(R.id.InffechaEvento);
+         TextView lugar = (TextView) findViewById(R.id.InflugarEvento);
         ImageView imagenCartel =(ImageView) findViewById(R.id.InfCartelEvento);
         Button GeoBoton = (Button)findViewById(R.id.InfgeoLocaBtn);
         Button FbBtn = (Button)findViewById(R.id.fbBtn);
-
+        //Button Compartir = (Button)findViewById(R.id.InfCompartirBtn);
+        nombrEvento = nombre.toString();
         //Getter Objeto evento
         final Evento objetoEvento = (Evento)getIntent().getExtras().getSerializable("EventoP");
         //Setters
@@ -63,7 +64,6 @@ public class InformacionEventoActivity extends Activity {
             e.printStackTrace();
         }
         imagenCartel.setImageBitmap(imagen);
-        //Evento onClick - Lanzar Ruta Google Maps
 
         FbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +90,19 @@ public class InformacionEventoActivity extends Activity {
 
             }
         });
+        /*Compartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Evento: "+nombrEvento+ " se celebrara el próximo " +fechaEvento+ " más información en https://play.google.com/store/apps/details?id=coterodev.spaincosplay");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });*/
     }
+
     //Deberia entrar SIEMPRE
     @Override
     public void onBackPressed() {
