@@ -17,5 +17,6 @@
     <string name="order">Closest date</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="facebook_app_id">1051235838231573</string>
-
+    <string name="update">Update available</string>
+    <string name="update2">Visit the store to update</string>
 </resources>

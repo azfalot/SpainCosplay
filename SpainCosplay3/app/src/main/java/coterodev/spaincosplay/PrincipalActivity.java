@@ -1,26 +1,39 @@
 package coterodev.spaincosplay;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.ConnectException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Locale;
 
 public class PrincipalActivity extends Activity {
     Toast toast;
     Locale myLocale;
+
 
     @Override
     public void onCreate(Bundle IstanciaSalvada) {
@@ -35,6 +48,7 @@ public class PrincipalActivity extends Activity {
         Button español = (Button) findViewById(R.id.español);
         Button japones = (Button) findViewById(R.id.japones);
         Button compartir = (Button) findViewById(R.id.share);
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
        /* Button button3 = (Button)findViewById(R.id.cerrarSesionBtn);
         button3.setOnClickListener(new View.OnClickListener() {
@@ -88,9 +102,17 @@ public class PrincipalActivity extends Activity {
             }
         });
 
-        CargarNota();
-    }
 
+        int version = 0;
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            version = pInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        comprobarActualizacion(version);
+    }
+    //Lanzamiento de vistas
     public void lanzarVista(String parametro) {
         switch (parametro) {
             case "eventos":
@@ -136,33 +158,51 @@ public class PrincipalActivity extends Activity {
         finish();
     }
 
-    public void CargarNota(){
-        NotificationCompat.Builder mBuilder =
-                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.ic_notify)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!");
-// Creates an explicit intent for an Activity in your app
-       /* Intent resultIntent = new Intent(this, ResultActivity.class);
+    //1 - Construimos la Notificacion
+    //2- La lanzamos a traves de un NotificactionManager
+    private void comprobarActualizacion(int version) {
+        URL url = null;
+        String lectura;
+        try {
+            url = new URL("http://coterodev.esy.es/app/version.php");
+            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+            conexion.setConnectTimeout(3000);
+            if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+                lectura = reader.readLine();
+                lectura = lectura.substring(0,3);
+                String valor = lectura.replaceAll("\\D+","");
+                int versionNueva = Integer.parseInt(valor);
+                if (version<versionNueva){
+                    NotificationCompat.Builder notificacionVersion =
+                            (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                                    .setSmallIcon(R.drawable.ic_notify)
+                                    .setContentTitle(getString(R.string.update))
+                                    .setContentText(getString(R.string.update2));
+                    //Crear un Intent Explicito
+                    Intent intentoMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName()));
+                    //Pila
+                    TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+                    stackBuilder.addNextIntentWithParentStack(intentoMarket);
+                    //Pending intent
+                    PendingIntent resultPendingIntent =
+                            stackBuilder.getPendingIntent(
+                                    0,
+                                    PendingIntent.FLAG_UPDATE_CURRENT
+                            );
+                    //Establecer el ContentIntent
+                    notificacionVersion.setContentIntent(resultPendingIntent);
+                    notificacionVersion.setAutoCancel(true);
+                    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    notificationManager.notify(getTaskId(),notificacionVersion.build());
+                }
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            Toast.makeText(this.getApplicationContext(), "Es posible que tenga problemas de red",Toast.LENGTH_LONG).show();
 
-// The stack builder object will contain an artificial back stack for the
-// started Activity.
-// This ensures that navigating backward from the Activity leads out of
-// your application to the Home screen.
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-// Adds the back stack for the Intent (but not the Intent itself)
-        stackBuilder.addParentStack(ResultActivity.class);
-// Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-        mBuilder.setContentIntent(resultPendingIntent);
-        */NotificationManager mNotificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-// mId allows you to update the notification later on.
-        mNotificationManager.notify(getTaskId(), mBuilder.build());
+        }
+
     }
 }

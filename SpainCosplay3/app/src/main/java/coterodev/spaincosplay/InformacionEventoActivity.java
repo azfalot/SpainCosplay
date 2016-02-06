@@ -40,7 +40,8 @@ public class InformacionEventoActivity extends Activity {
         final Evento objetoEvento = (Evento)getIntent().getExtras().getSerializable("EventoP");
         //Setters
         nombre.setText(objetoEvento.getNombre());
-        fecha.setText(objetoEvento.getFecha()+" - "+objetoEvento.getFecha_fin());
+        String FechaFin = objetoEvento.getFecha_fin().substring(0,objetoEvento.getFecha_fin().indexOf(" "));
+        fecha.setText(objetoEvento.getFecha()+" - "+FechaFin);
 
         if (objetoEvento.getLugar().toString().equals("npi")) {
             lugar.setText("Ubicacion desconocida");

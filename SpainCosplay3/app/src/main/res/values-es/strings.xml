@@ -17,4 +17,6 @@
     <string name="order">Fecha mas cercana</string>
     <string name="section_format">Estamos en pruebas, Seccion: %1$d</string>
     <string name="facebook_app_id">1051235838231573</string>
+    <string name="update">Actualización disponible</string>
+    <string name="update2">Visite la tienda para actualizar</string>
 </resources>

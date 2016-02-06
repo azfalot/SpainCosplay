@@ -8,13 +8,19 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -43,17 +49,49 @@ public class ListaEventosActivity extends ListActivity {
             finish();
         }
 
+        //Rellenar Spinner
+        ArrayList<String> opciones = new ArrayList<>();
+        opciones.add("Proximos");
+        opciones.add("Finalizados");
+        opciones.add("Nombre");
 
-        /*
-        //Funcion boton info - comentado
-        Button infoBoton = (Button)findViewById(R.id.informacionBtn);
-        infoBoton.setOnClickListener(new View.OnClickListener() {
+        //Adaptarlo
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_custom, opciones);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner= (Spinner) findViewById(R.id.spinner);
+        spinner.setAdapter(adapter);
+        final EditText textoBusqueda = (EditText) findViewById(R.id.editText);
+        ImageView lupa = (ImageView) findViewById(R.id.lupa);
+
+        lupa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent i = new Intent(getApplicationContext(),InformacionActivity.class);
-                startActivity(i);
+                textoBusqueda.requestFocus();
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
             }
-        });*/
+        });
+
+        spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(
+                            AdapterView<?> parent, View view, int position, long id) {
+
+                        switch (position){
+                            case 0:
+
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
     }
 
     @Override
@@ -82,4 +120,6 @@ public class ListaEventosActivity extends ListActivity {
         }
 
     }
+
+
 }

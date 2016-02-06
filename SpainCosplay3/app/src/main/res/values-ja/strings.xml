@@ -3,7 +3,7 @@
     <string name="app_email">spaincosplay@coterodev.esy.es</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="acercade">およそ</string>
+    <string name="acercade">アバウト</string>
     <string name="login">Iniciar sesión</string>
     <string name="register">Registrar</string>
     <string name="registroN">Nuevo Usuario</string>
@@ -17,4 +17,6 @@
     <string name="order">日付</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="facebook_app_id">1051235838231573</string>
+    <string name="update">アプデート・アベーラブル</string>
+    <string name="update2">ビジット・ザー・ストー・トゥー・アプデート</string>
 </resources>
