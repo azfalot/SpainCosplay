@@ -28,9 +28,9 @@ public class InformacionEventoActivity extends Activity {
         contexto =  this.getApplicationContext();
         //Estructura
         setContentView(R.layout.activity_informacion_evento);
-         TextView nombre = (TextView) findViewById(R.id.InfnombreEvento);
-         TextView fecha = (TextView) findViewById(R.id.InffechaEvento);
-         TextView lugar = (TextView) findViewById(R.id.InflugarEvento);
+        TextView nombre = (TextView) findViewById(R.id.InfnombreEvento);
+        TextView fecha = (TextView) findViewById(R.id.InffechaEvento);
+        TextView lugar = (TextView) findViewById(R.id.InflugarEvento);
         ImageView imagenCartel =(ImageView) findViewById(R.id.InfCartelEvento);
         Button GeoBoton = (Button)findViewById(R.id.InfgeoLocaBtn);
         Button FbBtn = (Button)findViewById(R.id.fbBtn);

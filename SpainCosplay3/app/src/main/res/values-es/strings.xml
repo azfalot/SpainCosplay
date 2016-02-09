@@ -19,4 +19,9 @@
     <string name="facebook_app_id">1051235838231573</string>
     <string name="update">Actualización disponible</string>
     <string name="update2">Visite la tienda para actualizar</string>
+    <string name="error_conexion">Problemas de conexion</string>
+    <string name="icono_informacion">Busqueda por nombre | X para volver</string>
+    <string name="spinner_objeto0">Proximos Eventos</string>
+    <string name="spinner_objeto1">Eventos Finalizados</string>
+    <string name="spinner_objeto2">Ordenar Por Nombre</string>
 </resources>

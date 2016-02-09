@@ -12,34 +12,29 @@
         android:weightSum="1">
 
         <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_width="185dp"
+            android:layout_height="match_parent"
             android:id="@+id/spinner"
             android:popupBackground="@color/colorAccent"/>
 
         <EditText
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText" />
-
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
+            android:id="@+id/editText"
+            android:textColor="@android:color/white"
+            android:singleLine="true" />
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/equis"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:visibility="invisible" />
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/lupa"
-            android:src="@android:drawable/ic_menu_search"/>
+            android:src="@android:drawable/ic_menu_help"/>
     </LinearLayout>
-
-    <!--
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPaula"
-        android:textColor="@android:color/white"
-        android:layout_gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/proximos"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textView4" /> -->
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -55,8 +50,8 @@
             android:background="@color/colorPaulaComplementario"
             android:layout_gravity="center"/>
         <ProgressBar
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@android:id/empty"
             android:layout_gravity="center"/>
 

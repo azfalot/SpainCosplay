@@ -128,9 +128,9 @@ public class SplashScreenActivity extends Activity {
             }
 
         } catch (MalformedURLException e) {
-            Log.e("Spain Cosplay:", e.getMessage(), e);
+            //Log.e("Spain Cosplay:", e.getMessage(), e);
         } catch (IOException e) {
-            Log.e("Spain Cosplay:", e.getMessage(), e);
+            //Log.e("Spain Cosplay:", e.getMessage(), e);
         }
         return  acertijo;
     }

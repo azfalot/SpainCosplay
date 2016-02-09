@@ -200,7 +200,7 @@ public class PrincipalActivity extends Activity {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            Toast.makeText(this.getApplicationContext(), "Es posible que tenga problemas de red",Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getApplicationContext(), getString(R.string.error_conexion),Toast.LENGTH_LONG).show();
 
         }
 

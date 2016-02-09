@@ -19,4 +19,9 @@
     <string name="facebook_app_id">1051235838231573</string>
     <string name="update">アプデート・アベーラブル</string>
     <string name="update2">ビジット・ザー・ストー・トゥー・アプデート</string>
+    <string name="error_conexion">接続の問題</string>
+    <string name="icono_informacion">名前で検索します。 | 戻ります X</string>
+    <string name="spinner_objeto0">今後のイベント</string>
+    <string name="spinner_objeto1">完了したイベント</string>
+    <string name="spinner_objeto2">名前順します。</string>
 </resources>

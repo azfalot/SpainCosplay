@@ -23,14 +23,14 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:id="@+id/ingles"
-            android:background="@drawable/uk"/>
+            android:id="@+id/japones"
+            android:background="@drawable/ja"/>
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:id="@+id/japones"
-            android:background="@drawable/ja"/>
+            android:id="@+id/ingles"
+            android:background="@drawable/uk"/>
 
     </LinearLayout>
 

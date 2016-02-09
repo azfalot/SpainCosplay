@@ -61,7 +61,7 @@ public class EventoNegocio extends AsyncTask<String,Void,Evento>{
             }
 
         } catch (Exception e) {
-            Log.e("A JSON", e.toString());
+           // Log.e("A JSON", e.toString());
         }
 
 

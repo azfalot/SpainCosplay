@@ -102,12 +102,12 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     //Aqui no deberia hacer nada
                 } catch (MalformedURLException e) {
-                    Log.e("Spain Cosplay:", e.getMessage(), e);
+                    //Log.e("Spain Cosplay:", e.getMessage(), e);
                 } catch (IOException e) {
-                    Log.e("Spain Cosplay:", e.getMessage(), e);
+                    //Log.e("Spain Cosplay:", e.getMessage(), e);
                 }
                 catch (NullPointerException n){
-                    Log.e("Spain Cosplay:", n.getMessage(), n);
+                    //Log.e("Spain Cosplay:", n.getMessage(), n);
                 }
 
         }else {toast = Toast.makeText(getApplicationContext(), "Uno o Varios campos vacios", Toast.LENGTH_SHORT);toast.show();}
@@ -128,9 +128,9 @@ public class LoginActivity extends AppCompatActivity {
             fos.write(contraseña.getBytes());
             fos.close();
         } catch (FileNotFoundException e) {
-            Log.e("Spain Cosplay:",e.getMessage(),e);
+            //Log.e("Spain Cosplay:",e.getMessage(),e);
         } catch (IOException e) {
-            Log.e("Spain Cosplay:", e.getMessage(), e);
+            //Log.e("Spain Cosplay:", e.getMessage(), e);
         }
     }
 }

@@ -23,7 +23,6 @@ public class ListaEventosNegocio extends AsyncTask<String,Void,ArrayList> {
     InputStream is = null;
     String line = null;
     String resultado = null;
-
     public String[] nombres;
 
     @Override
@@ -65,7 +64,7 @@ public class ListaEventosNegocio extends AsyncTask<String,Void,ArrayList> {
             }
 
         } catch (Exception e) {
-            Log.e("A JSON", e.toString());
+           // Log.e("A JSON", e.toString());
         }
 
         return null;

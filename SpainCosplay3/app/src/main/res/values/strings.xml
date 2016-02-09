@@ -19,4 +19,9 @@
     <string name="facebook_app_id">1051235838231573</string>
     <string name="update">Update available</string>
     <string name="update2">Visit the store to update</string>
+    <string name="error_conexion">Connection issues</string>
+    <string name="icono_informacion">Search by name | X to return</string>
+    <string name="spinner_objeto0">Upcoming Events</string>
+    <string name="spinner_objeto1">Completed Events</string>
+    <string name="spinner_objeto2">Sort by Name</string>
 </resources>
